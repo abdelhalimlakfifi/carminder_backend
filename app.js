@@ -1,6 +1,9 @@
 const express = require('express');
 const app = express();
-const errorMiddleware = require('./middlewares/errorHandler')
+const errorMiddleware = require('./middlewares/errorHandler');
+
+//load and configure dotenv package
+require('dotenv').config();
 
 //Set the port env variable
 const port = process.env.PORT || 3000;
