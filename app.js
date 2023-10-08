@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const errorMiddleware = require('./middlewares/errorHandler')
 
 //Set the port env variable
 const port = process.env.PORT || 3000;
@@ -9,8 +10,11 @@ const port = process.env.PORT || 3000;
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
+
+//Middlewares
 app.use(bodyParser.json());
 app.use(cors());
+app.use(errorMiddleware);
 
 
 //Route for admin related operations
