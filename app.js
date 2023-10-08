@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const connectDb = require('./config/db')
 const errorMiddleware = require('./middlewares/errorHandler');
 
 //load and configure dotenv package
@@ -8,6 +9,9 @@ require('dotenv').config();
 //Set the port env variable
 const port = process.env.PORT || 3000;
 
+
+// Connect to MongoDB
+connectDb();
 
 //Required middleware functions to handle common functionalities
 const bodyParser = require('body-parser');
