@@ -1,13 +1,12 @@
 const express = require('express');
 const app = express();
 const connectDb = require('./config/db')
-const errorMiddleware = require('./middlewares/errorHandler');
 
 //load and configure dotenv package
 require('dotenv').config();
 
 //Set the port env variable
-const port = process.env.PORT || 3000;
+const port = 4500;
 
 
 // Connect to MongoDB
@@ -21,17 +20,17 @@ const cors = require('cors');
 //Middlewares
 app.use(bodyParser.json());
 app.use(cors());
-app.use(errorMiddleware);
 
 
-//Route for admin related operations
-const adminRoutes = require('./routes/adminRoutes');
+// //Route for admin related operations
+// const adminRoutes = require('./routes/adminRoutes');
+// app.use('/admin', adminRoutes);
 
-//Route for Client Related operations
-const clientRoutes = require('./routes/clientRoutes');
+// //Route for Client Related operations
+// const clientRoutes = require('./routes/clientRoutes');
+// app.use('/client', clientRoutes);
 
-app.use('/admin', adminRoutes);
-app.use('/client', clientRoutes);
+
 
 
 //Start the Express server and listen on the specified port.
